@@ -1,10 +1,17 @@
 import * as React from 'react';
 import { Route, RouteComponentProps, Switch } from 'react-router-dom';
 import { accessibleRouteChangeHandler } from '@app/utils/utils';
-import { Dashboard } from '@app/Dashboard/Dashboard';
-import { Support } from '@app/Support/Support';
-import { GeneralSettings } from '@app/Settings/General/GeneralSettings';
-import { ProfileSettings } from '@app/Settings/Profile/ProfileSettings';
+import { About } from '@app/About/About';
+import { Status } from '@app/Status/Status';
+import { Analysis } from '@app/Analysis/Analysis';
+import { ObjectiveFunction } from '@app/Advanced User/ObjectiveFunction';
+import { LayerDefination } from '@app/Advanced User/LayerDefination';
+import { TrialSettings } from '@app/Advanced User/TrialSettings';
+import { InstallationGuide } from '@app/Documentation/InstallationGuide';
+import { FAQs } from './Documentation/FAQs';
+import { Glossary } from './Documentation/Glossary';
+import { CommunityCall } from './Documentation/CommunityCall';
+
 import { NotFound } from '@app/NotFound/NotFound';
 import { useDocumentTitle } from '@app/utils/useDocumentTitle';
 import { LastLocationProvider, useLastLocation } from 'react-router-last-location';
@@ -31,38 +38,87 @@ export type AppRouteConfig = IAppRoute | IAppRouteGroup;
 
 const routes: AppRouteConfig[] = [
   {
-    component: Dashboard,
+    component: About,
     exact: true,
-    label: 'Dashboard',
+    label: 'About Autotune',
     path: '/',
-    title: 'PatternFly Seed | Main Dashboard',
+    title: 'PatternFly Seed | Main About',
   },
+ 
   {
-    component: Support,
+    component: Status,
     exact: true,
     isAsync: true,
-    label: 'Support',
-    path: '/support',
-    title: 'PatternFly Seed | Support Page',
+    label: 'Experiment Status',
+    path: '/experiment_status',
+    title: 'PatternFly Seed | Status Page',
   },
   {
-    label: 'Settings',
+    component: Analysis,
+    exact: true,
+    isAsync: true,
+    label: 'Analysis',
+    path: '/analysis',
+    title: 'PatternFly Seed | Status Page',
+  },
+  {
+    label: 'Advanced User',
     routes: [
       {
-        component: GeneralSettings,
+        component: ObjectiveFunction,
         exact: true,
-        label: 'General',
-        path: '/settings/general',
-        title: 'PatternFly Seed | General Settings',
+        label: 'ObjectiveFunction',
+        path: '/advanceduser/objectivefunction',
+        title: 'PatternFly Seed | Objective Function',
       },
       {
-        component: ProfileSettings,
+        component: LayerDefination,
         exact: true,
-        label: 'Profile',
-        path: '/settings/profile',
-        title: 'PatternFly Seed | Profile Settings',
+        label: 'LayerDefination',
+        path: '/advanced_user/layerdefination',
+        title: 'PatternFly Seed | Layer Defination',
+      },
+      {
+        component: TrialSettings,
+        exact: true,
+        label: 'TrialSettings',
+        path: '/advanced_user/trialsettings',
+        title: 'PatternFly Seed | Trial Settings',
       },
     ],
+  },
+  {
+    label: 'Documentation',
+    routes: [
+      {
+        component: InstallationGuide,
+        exact: true,
+        label: 'InstallationGuide',
+        path: '/documentation/installationguide',
+        title: 'PatternFly Seed | Installation Guide',
+      },
+      {
+        component: Glossary,
+        exact: true,
+        label: 'Glossary',
+        path: '/documentation/glossary',
+        title: 'PatternFly Seed | Layer Defination',
+      },
+      {
+        component: FAQs,
+        exact: true,
+        label: 'FAQs',
+        path: '/documentation/faqs',
+        title: 'PatternFly Seed | FAQs',
+      },
+      {
+        component: CommunityCall,
+        exact: true,
+        label: 'Community Call',
+        path: '/documentation/communitycall',
+        title: 'PatternFly Seed | Community Call',
+      },
+    ]
   },
 ];
 
