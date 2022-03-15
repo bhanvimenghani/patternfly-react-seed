@@ -83,6 +83,8 @@
     "@patternfly/react-icons": "^4.32.1",
     "@patternfly/react-styles": "^4.31.1",
     "@storybook/builder-webpack5": "^6.2.9",
+    "babel-preset-es2015": "^6.24.1",
+    "marked": "^4.0.12",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-router-last-location": "^2.0.1",

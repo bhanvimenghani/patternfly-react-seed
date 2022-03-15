@@ -1,5 +1,5 @@
 import React, { ComponentProps } from 'react';
-import { Status } from '@app/Status/Status';
+import { Status } from '@app/RunExperiment/Status';
 import { Story } from '@storybook/react';
 
 //👇 This default export determines where your story goes in the story list

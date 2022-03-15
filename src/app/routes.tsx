@@ -2,7 +2,8 @@ import * as React from 'react';
 import { Route, RouteComponentProps, Switch } from 'react-router-dom';
 import { accessibleRouteChangeHandler } from '@app/utils/utils';
 import { About } from '@app/About/About';
-import { Status } from '@app/Status/Status';
+import  RunExperiment  from '@app/RunExperiment/RunExperiment';
+import { ExperimentStatus } from '@app/ExperimentStatus/ExperimentStatus';
 import { Analysis } from '@app/Analysis/Analysis';
 import { ObjectiveFunction } from '@app/Advanced User/ObjectiveFunction';
 import { LayerDefination } from '@app/Advanced User/LayerDefination';
@@ -46,7 +47,15 @@ const routes: AppRouteConfig[] = [
   },
  
   {
-    component: Status,
+    component: RunExperiment,
+    exact: true,
+    isAsync: true,
+    label: 'Run Experiment',
+    path: '/run_experiment',
+    title: 'PatternFly Seed | Run Experiment',
+  },
+  {
+    component: ExperimentStatus,
     exact: true,
     isAsync: true,
     label: 'Experiment Status',
