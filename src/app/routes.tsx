@@ -2,9 +2,9 @@ import * as React from 'react';
 import { Route, RouteComponentProps, Switch } from 'react-router-dom';
 import { accessibleRouteChangeHandler } from '@app/utils/utils';
 import { About } from '@app/About/About';
-import  RunExperiment  from '@app/RunExperiment/RunExperiment';
+
 import { ExperimentStatus } from '@app/ExperimentStatus/ExperimentStatus';
-import { Analysis } from '@app/Analysis/Analysis';
+import { Analytics } from '@app/Analytics/Analytics';
 import { ObjectiveFunction } from '@app/Advanced User/ObjectiveFunction';
 import { LayerDefination } from '@app/Advanced User/LayerDefination';
 import { TrialSettings } from '@app/Advanced User/TrialSettings';
@@ -45,7 +45,7 @@ const routes: AppRouteConfig[] = [
     path: '/',
     title: 'PatternFly Seed | Main About',
   },
- 
+ /*
   {
     component: RunExperiment,
     exact: true,
@@ -54,6 +54,7 @@ const routes: AppRouteConfig[] = [
     path: '/run_experiment',
     title: 'PatternFly Seed | Run Experiment',
   },
+  */
   {
     component: ExperimentStatus,
     exact: true,
@@ -63,12 +64,12 @@ const routes: AppRouteConfig[] = [
     title: 'PatternFly Seed | Status Page',
   },
   {
-    component: Analysis,
+    component: Analytics,
     exact: true,
     isAsync: true,
-    label: 'Analysis',
-    path: '/analysis',
-    title: 'PatternFly Seed | Status Page',
+    label: 'Analytics',
+    path: '/analytics',
+    title: 'PatternFly Seed | Analytics Page',
   },
   {
     label: 'Advanced User',
@@ -162,13 +163,14 @@ const PageNotFound = ({ title }: { title: string }) => {
   return <Route component={NotFound} />;
 };
 
+
 const flattenedRoutes: IAppRoute[] = routes.reduce(
   (flattened, route) => [...flattened, ...(route.routes ? route.routes : [route])],
   [] as IAppRoute[]
 );
 
 const AppRoutes = (): React.ReactElement => (
-  <LastLocationProvider>
+<LastLocationProvider>
     <Switch>
       {flattenedRoutes.map(({ path, exact, component, title, isAsync }, idx) => (
         <RouteWithTitleUpdates
@@ -180,9 +182,10 @@ const AppRoutes = (): React.ReactElement => (
           isAsync={isAsync}
         />
       ))}
-      <PageNotFound title="404 Page Not Found" />
+      <PageNotFound title="404 Page Not Found" /> 
     </Switch>
-  </LastLocationProvider>
+    </LastLocationProvider>
 );
 
 export { AppRoutes, routes };
+
