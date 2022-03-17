@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Route, RouteComponentProps, Switch } from 'react-router-dom';
 import { accessibleRouteChangeHandler } from '@app/utils/utils';
 import { About } from '@app/About/About';
-
+import  RE  from '@app/RunExperiment/RE';
 import { ExperimentStatus } from '@app/ExperimentStatus/ExperimentStatus';
 import { Analytics } from '@app/Analytics/Analytics';
 import { ObjectiveFunction } from '@app/Advanced User/ObjectiveFunction';
@@ -45,16 +45,16 @@ const routes: AppRouteConfig[] = [
     path: '/',
     title: 'PatternFly Seed | Main About',
   },
- /*
+ 
   {
-    component: RunExperiment,
+    component: RE,
     exact: true,
     isAsync: true,
     label: 'Run Experiment',
     path: '/run_experiment',
     title: 'PatternFly Seed | Run Experiment',
   },
-  */
+ 
   {
     component: ExperimentStatus,
     exact: true,

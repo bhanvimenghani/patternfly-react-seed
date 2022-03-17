@@ -84,6 +84,7 @@
     "@patternfly/react-styles": "^4.31.1",
     "@storybook/builder-webpack5": "^6.2.9",
     "babel-preset-es2015": "^6.24.1",
+    "dompurify": "^2.3.6",
     "markdown-to-jsx": "^7.1.7",
     "marked": "^4.0.12",
     "react": "^17.0.2",

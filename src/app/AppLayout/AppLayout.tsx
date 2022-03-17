@@ -11,7 +11,7 @@ import {
   SkipToContent
 } from '@patternfly/react-core';
 import { routes, IAppRoute, IAppRouteGroup } from '@app/routes';
-import HorizontalNav  from '@app/HorizontalNav/HorizontalNav';
+import HorizontalNav from '@app/HorizontalNav/HorizontalNav';
 
 
 interface IAppLayout {
@@ -31,26 +31,27 @@ const AppLayout: React.FunctionComponent<IAppLayout> = ({ children }) => {
   const onPageResize = (props: { mobileView: boolean; windowSize: number }) => {
     setIsMobileView(props.mobileView);
   };
-/*
-  function LogoImg() {
-    const history = useHistory();
-    function handleClick() {
-      history.push('/');
+  /*
+    function LogoImg() {
+      const history = useHistory();
+      function handleClick() {
+        history.push('/');
+      }
+      return (
+        <img src={logo} onClick={handleClick} alt="PatternFly Logo" />
+      );
     }
-    return (
-      <img src={logo} onClick={handleClick} alt="PatternFly Logo" />
-    );
-  }
-*/
+  
+  */
   const Header = (
     <PageHeader
-  
+      headerTools={<HorizontalNav />}
       showNavToggle
       isNavOpen={isNavOpen}
       onNavToggle={isMobileView ? onNavToggleMobile : onNavToggle}
-     />
-    
+    />
   );
+
 
   const location = useLocation();
 
